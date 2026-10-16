@@ -1,0 +1,39 @@
+{% assign product = site.data.products | where: "article", include.article |
+first %} {% if product %}
+
+<article class="product-detail">
+  <h1>{{ product.name }}</h1>
+
+  <p><strong>Artikul:</strong> {{ product.article }}</p>
+  <p><strong>Kategoriya:</strong> {{ product.category }}</p>
+  <p><strong>Subkategoriya:</strong> {{ product.subcategory }}</p>
+
+  <p>{{ product.description }}</p>
+
+  <h2>O‘lchamlari</h2>
+  <ul>
+    <li>Eni: {{ product.width }} mm</li>
+    <li>Balandligi: {{ product.height }} mm</li>
+    <li>Uzunligi: {{ product.length }} mm</li>
+  </ul>
+
+  <p>
+    <strong>Narxi:</strong>
+    {{ product.price }} so‘m / {{ product.unit }}
+  </p>
+
+  {% if product.features %}
+  <h2>Xususiyatlari</h2>
+  <ul>
+    {% for feature in product.features %}
+    <li>{{ feature }}</li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+</article>
+
+{% else %}
+
+<p>Artikul bo‘yicha mahsulot topilmadi.</p>
+
+{% endif %}

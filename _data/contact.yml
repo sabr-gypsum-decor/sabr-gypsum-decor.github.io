@@ -3,9 +3,10 @@
 - type: github
   icon: "fa-brands fa-github"
 
-# - type: linkedin
-#  icon: "fa-brands fa-linkedin" # icons powered by <https://fontawesome.com/>
-#  url: "https://www.linkedin.com/in/jaxongir-kaxarov" # Fill with your Linkedin homepage
+- type: linkedin
+  icon: "fa-brands fa-linkedin" # icons powered by <https://fontawesome.com/>
+  url: "https://www.linkedin.com/in/jaxongir-kaxarov" # Fill with your Linkedin homepage
+
 # - type: orcid
 #   icon: "fa-brands fa-orcid"
 #   url: 'https://orcid.org/0009-0003-6462-6600'
@@ -18,9 +19,9 @@
   icon: "fa-brands fa-youtube"
   url: "https://www.youtube.com/@SabrGypsumDecor"
 
-# - type: rss
-#  icon: "fa-solid fa-rss"
-# noblank: true
+- type: rss
+  icon: "fa-solid fa-rss"
+  # noblank: true
 
 # Uncomment and complete the url below to enable more contact options
 #
@@ -56,6 +57,10 @@
   url: "https://t.me/Jakhongir_Kakharov"
   # noblank: true # open link in current tab
 
+- type: telegram
+  icon: "fab fa-telegram"
+  url: "https://t.me/sabrdecor"
+
 - type: whatsapp
   icon: "fa-brands fa-whatsapp"
   url: "https://wa.me/998333641411"
@@ -63,3 +68,11 @@
 - type: pinterest
   icon: "fa-brands fa-pinterest"
   url: "https://www.pinterest.com/sabrgypsumdecor/"
+
+- type: behance
+  icon: "fa-brands fa-behance"
+  url: "https://www.behance.net/sabrgypsumdecor"
+
+- type: dribbble
+  icon: "fa-brands fa-dribbble"
+  url: "https://dribbble.com/sabr-gypsum-decor"
