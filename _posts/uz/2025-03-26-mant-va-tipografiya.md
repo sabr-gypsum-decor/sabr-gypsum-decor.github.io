@@ -12,12 +12,6 @@ image:
   lqip: data:image/webp;base64,UklGRpoAAABXRUJQVlA4WAoAAAAQAAAADwAABwAAQUxQSDIAAAARL0AmbZurmr57yyIiqE8oiG0bejIYEQTgqiDA9vqnsUSI6H+oAERp2HZ65qP/VIAWAFZQOCBCAAAA8AEAnQEqEAAIAAVAfCWkAALp8sF8rgRgAP7o9FDvMCkMde9PK7euH5M1m6VWoDXf2FkP3BqV0ZYbO6NA/VFIAAAA
   alt: Chirpy mavzusining bir nechta qurilmalarda moslashuvchan ko'rinishi.
 media_subpath: '/assets/img/articles/2025-03-26-mant-va-tipografiya'
-layout: post
-article: SGD-001
----
-
-{% include product-detail.html article=page.article %}
-
 ---
 
 ## Sarlavhalar
@@ -176,7 +170,7 @@ $$ x = {-b \pm \sqrt{b^2-4ac} \over 2a} $$
 ![Desktop View](mockup.png){: width="972" height="589" }
 _To'liq ekran kengligi va markaziy hizalama_
 
-### Chapga olingan
+### O'rtaga olingan
 
 ![Desktop View](mockup.png){: width="972" height="589" .w-75 .normal}
 
@@ -202,9 +196,9 @@ Quyidagi rasm mavzu afzalligiga qarab qorong'i/yorug' rejimni almashtiradi, e'ti
 ## Аккорд 600×600×20 мм
 
 {% include embed/embed-3d.html
-  url="/assets/models/Untitled.glb"
+  url="/assets/img/products/композиция-1в.glb"
   alt="Аккорд 600×600×20 мм"
-  style="height: 300px; width: 100%; background: linear-gradient(36.9deg, #191411 0%, #2F2E2C 100%);"
+  style="height: 300px; width: 80%; .rounded=10; background: linear-gradient(36.9deg, #191411 0%, #2F2E2C 100%);"
 %}
 
 **Mahsulot tavsifi:** Dk-15 naqshli karniz oddiy shakl va klassik naqshga ega. Ushbu shakldagi karniz zamonaviy klassika, skandinaviya yoki provans kabi turli interyer uslublariga mos keladi.
@@ -216,7 +210,7 @@ Quyidagi rasm mavzu afzalligiga qarab qorong'i/yorug' rejimni almashtiradi, e'ti
 ## Антик 635×850×170 мм
 
 {% include embed/embed-3d.html
-   url="/assets/models/Антик_635x850x170mm_OBJ.glb"
+   url="/assets/img/products/композиция-1в.glb"
    alt="Антик 635x850x170 мм"
    style="height: 300px; width: 100%; background: linear-gradient(135deg, #191411 0%, #191411 38.2%, #2F2E2C 100%);"
 %}
@@ -226,7 +220,7 @@ Quyidagi rasm mavzu afzalligiga qarab qorong'i/yorug' rejimni almashtiradi, e'ti
 ## Аккорд 600×600×20 мм
 
 {% include embed/embed-3d.html
-  url="/assets/models/Аккорд_600x600x20mm_OBJ.glb"
+  url="/assets/img/products/композиция-1в.glb"
   alt="Аккорд 600×600×20 мм"
   style="height: 300px; width: 100%; background: none"
 %}
