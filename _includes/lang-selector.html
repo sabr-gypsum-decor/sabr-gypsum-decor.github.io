@@ -22,7 +22,8 @@
   padding: 0.65rem 1rem;
   color: var(--sidebar-muted-color, #a0a0a0);
   border: none !important;
-  border-radius: 10px !important; /* Qat'iy 10px burchak */
+  border-radius: 10px !important; 
+  /* Qat'iy 10px burchak */
   cursor: pointer;
   transition: all 0.25s ease-in-out;
   
@@ -60,7 +61,8 @@
   z-index: 999;
   padding: 0.4rem;
   border: none !important;
-  border-radius: 10px !important; /* Oyna burchaklari 10px */
+  border-radius: 10px !important; 
+  /* Oyna burchaklari 10px */
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
   
   background-color: var(--sidebar-bg, rgba(30, 30, 30, 0.95)) !important;
@@ -198,7 +200,8 @@
 
 <script>
   function toggleLangMenu(event) {
-    event.stopPropagation(); /* Tugma bosilganda oyna darhol yopilib ketmasligi uchun */
+    event.stopPropagation(); 
+    /* Tugma bosilganda oyna darhol yopilib ketmasligi uchun */
     const menu = document.getElementById('langMenuList');
     const dropdown = document.getElementById('langDropdown');
     menu.classList.toggle('show-menu');
