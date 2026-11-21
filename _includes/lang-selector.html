@@ -1,4 +1,3 @@
-<!-- Soya effektli va 10px burchakli yangi custom uslublar -->
 <style>
 .lang-selector-wrapper {
   padding: 0.5rem 1.5rem;
@@ -14,7 +13,6 @@
   font-weight: 500;
 }
 
-/* Asosiy tugma (Chegarasiz, yengil soyali va shishasimon) */
 .dropdown-trigger {
   display: flex;
   align-items: center;
@@ -23,20 +21,16 @@
   color: var(--sidebar-muted-color, #a0a0a0);
   border: none !important;
   border-radius: 10px !important; 
-  /* Qat'iy 10px burchak */
   cursor: pointer;
   transition: all 0.25s ease-in-out;
   
-  /* To'q rejim uchun chiroyli mayin soya */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
   
-  /* Shisha effekti */
   background-color: var(--sidebar-bg, rgba(30, 30, 30, 0.75)) !important;
   -webkit-backdrop-filter: blur(16px) !important;
   backdrop-filter: blur(16px) !important;
 }
 
-/* Hover holati */
 .dropdown-trigger:hover, .custom-dropdown.active-trigger .dropdown-trigger {
   color: var(--sidebar-active-color, #ffffff);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
@@ -51,7 +45,6 @@
   transform: rotate(180deg);
 }
 
-/* Ochiladigan maxsus til oynasi */
 .dropdown-menu-list {
   display: none;
   position: absolute;
@@ -62,7 +55,6 @@
   padding: 0.4rem;
   border: none !important;
   border-radius: 10px !important; 
-  /* Oyna burchaklari 10px */
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
   
   background-color: var(--sidebar-bg, rgba(30, 30, 30, 0.95)) !important;
@@ -75,7 +67,6 @@
   animation: slideDownFade 0.2s ease-out;
 }
 
-/* Oyna ichidagi har bir til tugmasi */
 .dropdown-item-link {
   display: flex;
   align-items: center;
@@ -92,21 +83,18 @@
   margin-bottom: 0;
 }
 
-/* Ichki elementlar hover holati */
 .dropdown-item-link:hover {
   background-color: var(--sidebar-hover-bg, rgba(255, 255, 255, 0.12)) !important;
   color: var(--sidebar-active-color, #ffffff) !important;
   padding-left: 1.25rem;
 }
 
-/* Hozirgi tanlangan til */
 .active-lang-item {
   background-color: var(--sidebar-hover-bg, rgba(255, 255, 255, 0.08)) !important;
   color: var(--sidebar-active-color, #ffffff) !important;
   font-weight: bold;
 }
 
-/* ========== LIGHT MODE SOZLAMALARI ========== */
 [data-mode='light'] {
   .dropdown-trigger {
     color: var(--sidebar-muted-color, #666666);
@@ -200,15 +188,13 @@
 
 <script>
   function toggleLangMenu(event) {
-    event.stopPropagation(); 
-    /* Tugma bosilganda oyna darhol yopilib ketmasligi uchun */
+    event.stopPropagation();
     const menu = document.getElementById('langMenuList');
     const dropdown = document.getElementById('langDropdown');
     menu.classList.toggle('show-menu');
     dropdown.classList.toggle('active-trigger');
   }
-
-  /* Istalgan boshqa joyga bosilganda oynani yopish */
+  
   window.addEventListener('click', function(e) {
     const dropdown = document.getElementById('langDropdown');
     const menu = document.getElementById('langMenuList');
