@@ -10,11 +10,9 @@ icon: fas fa-info-circle
 order: 4
 ---
 
-## Sabr Gypsum Decor — g‘oya, shakl va sabr uyg‘unligi
+## Sabr Gypsum Decor
 
-**Sabr Gypsum Decor** — bu shaxsiy dizayn g‘oyalari va gips buyumlar ishlab chiqarish borasidagi amaliy tajriba asosida yo‘lga qo‘yilgan mualliflik loyihasi.
-
-> Gips bilan ishlash shoshishni yoqtirmaydi. To‘g‘ri proporsiya, qolip aniqligi va sirt mukammalligi vaqt hamda e’tibor talab qiladi.
+> **Sabr Gypsum Decor** — bu shaxsiy dizayn g‘oyalari va gips buyumlar ishlab chiqarish borasidagi amaliy tajriba asosida yo‘lga qo‘yilgan mualliflik loyihasi.
 {: .prompt-info }
 
 ### Mualliflik yondashuvi
