@@ -1,0 +1,217 @@
+<!-- Soya effektli va 10px burchakli yangi custom uslublar -->
+<style>
+.lang-selector-wrapper {
+  padding: 0.5rem 1.5rem;
+  margin: 0.5rem 0;
+  position: relative;
+}
+
+.custom-dropdown {
+  position: relative;
+  width: 100%;
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* Asosiy tugma (Chegarasiz, yengil soyali va shishasimon) */
+.dropdown-trigger {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0.65rem 1rem;
+  color: var(--sidebar-muted-color, #a0a0a0);
+  border: none !important;
+  border-radius: 10px !important; /* Qat'iy 10px burchak */
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+  
+  /* To'q rejim uchun chiroyli mayin soya */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  
+  /* Shisha effekti */
+  background-color: var(--sidebar-bg, rgba(30, 30, 30, 0.75)) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  backdrop-filter: blur(16px) !important;
+}
+
+/* Hover holati */
+.dropdown-trigger:hover, .custom-dropdown.active-trigger .dropdown-trigger {
+  color: var(--sidebar-active-color, #ffffff);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+  background-color: var(--sidebar-hover-bg, rgba(255, 255, 255, 0.1)) !important;
+}
+
+.dropdown-trigger .small-arrow {
+  transition: transform 0.2s ease;
+}
+
+.custom-dropdown.active-trigger .small-arrow {
+  transform: rotate(180deg);
+}
+
+/* Ochiladigan maxsus til oynasi */
+.dropdown-menu-list {
+  display: none;
+  position: absolute;
+  top: 115%;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  padding: 0.4rem;
+  border: none !important;
+  border-radius: 10px !important; /* Oyna burchaklari 10px */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  
+  background-color: var(--sidebar-bg, rgba(30, 30, 30, 0.95)) !important;
+  -webkit-backdrop-filter: blur(25px) !important;
+  backdrop-filter: blur(25px) !important;
+}
+
+.dropdown-menu-list.show-menu {
+  display: block;
+  animation: slideDownFade 0.2s ease-out;
+}
+
+/* Oyna ichidagi har bir til tugmasi */
+.dropdown-item-link {
+  display: flex;
+  align-items: center;
+  padding: 0.6rem 1rem;
+  color: var(--sidebar-muted-color, #a0a0a0);
+  text-decoration: none !important;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  margin-bottom: 2px;
+  cursor: pointer;
+}
+
+.dropdown-item-link:last-child {
+  margin-bottom: 0;
+}
+
+/* Ichki elementlar hover holati */
+.dropdown-item-link:hover {
+  background-color: var(--sidebar-hover-bg, rgba(255, 255, 255, 0.12)) !important;
+  color: var(--sidebar-active-color, #ffffff) !important;
+  padding-left: 1.25rem;
+}
+
+/* Hozirgi tanlangan til */
+.active-lang-item {
+  background-color: var(--sidebar-hover-bg, rgba(255, 255, 255, 0.08)) !important;
+  color: var(--sidebar-active-color, #ffffff) !important;
+  font-weight: bold;
+}
+
+/* ========== LIGHT MODE SOZLAMALARI ========== */
+[data-mode='light'] {
+  .dropdown-trigger {
+    color: var(--sidebar-muted-color, #666666);
+    background-color: rgba(255, 255, 255, 0.6) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    
+    &:hover {
+      color: #333333;
+      background-color: rgba(0, 0, 0, 0.03) !important;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  .dropdown-menu-list {
+    background-color: rgba(255, 255, 255, 0.9) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  }
+
+  .dropdown-item-link {
+    color: #555555;
+    
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.04) !important;
+      color: #000000 !important;
+    }
+  }
+  
+  .active-lang-item {
+    background-color: rgba(0, 0, 0, 0.02) !important;
+    color: #000000 !important;
+  }
+}
+
+@keyframes slideDownFade {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
+
+<!-- Custom HTML format -->
+<div class="lang-selector-wrapper">
+  <div class="custom-dropdown" id="langDropdown">
+    
+    <div class="dropdown-trigger" onclick="toggleLangMenu(event)">
+      <i class="fas fa-globe text-muted me-2"></i>
+      <span>
+        {% case site.active_lang %}
+          {% when 'uz' %}UZ
+          {% when 'ru' %}RU
+          {% when 'ko' %}KO
+          {% when 'en' %}EN
+          {% when 'ja' %}JA
+          {% else %}{{ site.active_lang | upcase }}
+        {% endcase %}
+      </span>
+      <i class="fas fa-chevron-down ms-auto ms-2 small-arrow"></i>
+    </div>
+
+    <div class="dropdown-menu-list" id="langMenuList">
+      {%- for lang in site.languages -%}
+        
+        <!-- Diqqat! Polyglot avto-yo'naltirishini o'chirish uchun link boshida probel qoldiramiz -->
+        {% if lang == site.default_lang %}
+          {% capture lang_url %} {{ page.url | relative_url }}{% endcapture %}
+        {% else %}
+          {% capture lang_url %} /{{ lang }}{{ page.url | relative_url }}{% endcapture %}
+        {% endif %}
+        
+        <a href="{{ lang_url }}" 
+           class="dropdown-item-link {% if lang == site.active_lang %}active-lang-item{% endif %}">
+          {% case lang %}
+            {% when 'uz' %}Oʻzbek
+            {% when 'ru' %}Русский
+            {% when 'ko' %}한국어
+            {% when 'en' %}English
+            {% when 'ja' %}日本語
+            {% when 'zh-TW' %}正體中文
+            {% when 'es' %}Español
+            {% when 'pt-BR' %}Português
+            {% when 'fr' %}Français
+            {% when 'de' %}Deutsch
+            {% else %}{{ lang | upcase }}
+          {% endcase %}
+        </a>
+      {%- endfor -%}
+    </div>
+
+  </div>
+</div>
+
+
+<script>
+  function toggleLangMenu(event) {
+    event.stopPropagation(); // Tugma bosilganda oyna darhol yopilib ketmasligi uchun
+    const menu = document.getElementById('langMenuList');
+    const dropdown = document.getElementById('langDropdown');
+    menu.classList.toggle('show-menu');
+    dropdown.classList.toggle('active-trigger');
+  }
+
+  // Istalgan boshqa joyga bosilganda oynani yopish
+  window.addEventListener('click', function(e) {
+    const dropdown = document.getElementById('langDropdown');
+    const menu = document.getElementById('langMenuList');
+    if (dropdown && !dropdown.contains(e.target)) {
+      menu.classList.remove('show-menu');
+      dropdown.classList.remove('active-trigger');
+    }
+  });
+</script>

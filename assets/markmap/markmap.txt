@@ -1,0 +1,54 @@
+---
+markmap:
+  layout: two-sided
+  wrapWidth: 240
+---
+
+# markmap
+
+## Write Markdown
+
+- Headings and lists become **branches**
+- `code`, ~~strikes~~, ==highlights== and [links](https://markmap.js.org)
+- [x] Task lists
+- [ ] Images <img src="{{ '/assets/markmap/favicon.png' | relative_url }}" width="20" height="20" alt="Logo">
+- Math like $e^{i\pi} + 1 = 0$
+
+## Keep the details
+
+- Other text becomes a note
+
+  Click the dot beside this label. Paragraphs, tables and code stay out of the map until you need them.
+
+  | Block | Shown in    |
+  | ----- | ----------- |
+  | Table | the popover |
+
+  ```js
+  const { root } = parse(markdown);
+  Markmap.create(svg, root);
+  ```
+
+## Shape it
+
+- Layouts
+  - Tree
+  - Two-sided
+  - Org chart
+- Themes
+  - Classic
+  - Cards
+  - Minimal
+- Set them in the frontmatter, or with the controls above
+
+## Explore <!-- markmap: fold -->
+
+- Click a circle to fold a branch
+- Ctrl or Cmd + click to fold or unfold everything below it
+- Double-click a node to jump to its Markdown
+- Move the cursor to find it on the map
+
+## Share
+
+- Links carry the whole document
+- Export as SVG, PNG or HTML

@@ -1,0 +1,27 @@
+
+<div class="markmap-embed">
+
+  <div
+    class="markmap"
+    data-src="{{ include.file | prepend: '/assets/markmap/' | relative_url }}"
+    data-theme="classic"
+    data-layout="tree"
+    data-color-scheme="auto"
+    data-toolbar
+    data-math
+    style="height:400px;width:100%; border-radius: 10px">
+  </div>
+
+</div>
+
+<script type="module">
+  import { configure } from 'https://cdn.jsdelivr.net/npm/@markmap/autoloader/+esm';
+
+  configure({
+    theme: 'classic',
+    layout: 'tree',
+    colorScheme: 'auto',
+    toolbar: true,
+    math: true
+  });
+</script>

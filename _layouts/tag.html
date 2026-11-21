@@ -1,0 +1,124 @@
+---
+layout: page
+# The layout for Tag page
+---
+
+{% include lang.html %}
+
+<style>
+  /* 1. Rasm ortidagi umumiy konteyner foni doim #3f3f3f */
+  .img-container-fixed {
+    height: 180px;
+    background-color: #3f3f3f !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-top-left-radius: 10px !important;
+    border-top-right-radius: 10px !important;
+  }
+
+  .card-img-top-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  /* 2. Qolgan qismlarga toza shisha (glassmorphism) effekti */
+  .custom-glass-card {
+    border: none !important;
+    border-radius: 10px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+    background-color: var(--sidebar-bg, rgba(30, 30, 30, 0.75)) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    backdrop-filter: blur(16px) !important;
+    transition: transform 0.25s ease, box-shadow 0.25s ease !important;
+  }
+
+  .custom-glass-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3) !important;
+  }
+
+  .custom-glass-card:hover .card-img-top-cover {
+    transform: scale(1.05);
+  }
+
+  /* Oq rejimda ham shisha effekti saqlanadi */
+  [data-mode='light'] .custom-glass-card {
+    background-color: rgba(255, 255, 255, 0.6) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06) !important;
+  }
+
+  /* Matnni 3 qatorda cheklash va chiroyli kesish */
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+  }
+
+  /* 3. Mobil versiya sozlamalari (Ekran 576px dan kichik bo'lganda) */
+  @media (max-width: 575.98px) {
+    /* Rasmlar buzilmasligi uchun konteyner balandligini moslashtiramiz */
+    .img-container-fixed {
+      height: 130px;
+    }
+    
+    /* Mobil uchun matn o'lchamlarini biroz ixchamlashtiramiz */
+    .card-body-custom {
+      padding: 0.5rem !important;
+    }
+  }
+</style>
+
+<div id="page-tag">
+  <h1 class="ps-lg-2 mb-4">
+    <i class="fa fa-tag fa-fw text-muted"></i>
+    {{ page.title }}
+    <span class="badge bg-secondary ms-2 rounded-pill">{{ page.posts | size }}</span>
+  </h1>
+
+  <!-- `row-cols-2` yordamida mobilda qat'iy 2 ta yonma-yon, kompyuterda esa 3 ta kartochka chiqadi -->
+  <div class="row row-cols-2 row-cols-md-3 g-3 g-md-4 ps-0">
+    {% for post in page.posts %}
+      <div class="col">
+        <div class="card h-100 custom-glass-card position-relative animate__animated animate__fadeIn">
+          
+          <!-- Rasm blok konteyneri (Foni doim #3f3f3f) -->
+          <div class="img-container-fixed">
+            {% if post.image.path %}
+              <img src="{{ post.image.path | relative_url }}" class="card-img-top-cover" alt="{{ post.title }}">
+            {% else %}
+              <i class="far fa-image fa-2x text-white-50"></i>
+            {% endif %}
+          </div>
+
+          <!-- Kartochka pastki matn qismi (Sarlavha o'rniga Description chiqadi) -->
+          <div class="card-body card-body-custom d-flex flex-column justify-content-between p-3">
+            <div>
+              <!-- Post sanasi -->
+              <div class="mb-1">
+                {% include datetime.html date=post.date class='text-muted small' lang=lang %}
+              </div>
+              
+              <!-- Sarlavha o'rniga maqola qisqa tavsifi (description yoki excerpt) -->
+              <p class="card-text text-muted small line-clamp-3 mb-0" style="color: var(--text-color) !important; font-weight: 500;">
+                <a href="{{ post.url | relative_url }}" class="text-decoration-none stretched-link" style="color: inherit !important;">
+                  {% if post.description %}
+                    {{ post.description }}
+                  {% else %}
+                    {{ post.excerpt | strip_html | strip_newlines | truncate: 90 }}
+                  {% endif %}
+                </a>
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
